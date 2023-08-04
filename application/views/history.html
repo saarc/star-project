@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타카드 이력관리</title>
+    <!-- bootstrap 라이브러리추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery 라이브러리 추가 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <h1>스타카드 이력관리 페이지</h1>
+        <p>스타카드 이력조회를 위한 스타카드 id를 입력하시오.</p>
+    </div>
+    <div class='container'>
+        <!-- label - cert -->
+        <label for="read-certid" class="form-label">인증서</label>
+        <!-- input - cert -->
+        <input type="text" class="form-control" id="read-certid">
+        <br>
+        <!-- label - phoneno -->
+        <label for="read-phoneno" class="form-lable">폰 번호</label>
+        <!-- input - phoneno -->
+        <input type="text" class="form-control" id="read-phoneno">
+        <br>
+        <!-- 조회 button -->
+        <button class="btn btn-info" id="read-btn">스타카드 조회</button>
+    </div>
+    <br>
+    <div class="container" id="read-result">
+        <!-- 결과 출력 영역 -->
+    </div>
+    <div class="container">
+        <table class="table table-hover">
+            <tbody id="history-result" ></tbody>
+        </table>
+    </div>
+    <br><br><br>
+
+    
+</body>
+
+<script>
+   $("#read-btn").click(() => {
+        const certid = $("#read-certid").val();
+        const pno = $("#read-phoneno").val();
+
+        $.get("/starcard/history", { certid, pno }, (data, status) => {
+            $("#read-result").empty();
+
+            //const res = JSON.stringify(data);
+            if (data.result == 'success') {
+                $("#read-result").append('RESULT: ' + data.result)
+                $("#read-result").append('<br>')
+                $("#read-result").append('MESSAGE: ' + data.msg)
+                $("#read-result").append('<br>')
+                //$("#read-result").append('CONTENTS: ' + JSON.stringify(data.content))
+
+            } else if (data.result == 'failed') {
+                $("#read-result").append('RESULT: ' + data.result)
+                $("#read-result").append('<br>')
+                $("#read-result").append('ERROR: ' + data.error)
+            }
+
+            $('#history-result').empty();
+            for(var i=0; i<data.content.length; i++){
+                $('#history-result').append('<tr><td>txId</td><td>'+data.content[i].txId+'</td></tr>');
+                $('#history-result').append('<tr><td>record</td><td>'+JSON.stringify(data.content[i].record)+'</td></tr>');
+                $('#history-result').append('<tr><td>timestamp</td><td>'+data.content[i].timestamp+'</td></tr>');
+                $('#history-result').append('<tr><td>isDelete</td><td>'+data.content[i].isDelete+'</td></tr>');
+            }
+        })
+    })
+
+</script>
+
+</html>

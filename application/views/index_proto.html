@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Project Prototype</title>
+
+    <!-- bootstrap 라이브러리 추가 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+
+    <!-- jquery 라이브러리 추가 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <br>
+        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="currentColor" class="bi bi-stars"
+            viewBox="0 0 16 16">
+            <path
+                d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828l.645-1.937zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.734 1.734 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.734 1.734 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.734 1.734 0 0 0 3.407 2.31l.387-1.162zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L10.863.1z" />
+        </svg>
+        <h1>Welcome to STARINSTAR Project Prototype.</h1>
+        
+        <p>별에별 프로토타입에 오신 것을 환영합니다.</p>
+        <br>
+    </div>
+    <div class="container">
+        <a href="./wallet.html" class="btn btn-outline-primary">지갑관리</a>
+        <br><br>
+        <a href="./history.html" class="btn btn-outline-info">이력관리</a>
+        <br><br>
+    </div>
+
+    <!-- 스타카드생성 -->
+    <div class="container">
+        <br>
+        <h1>스타카드 생성 페이지</h1>
+        <p>스타카드 생성을 위한 정보를 입력하세요</p>
+    </div>
+    <div class='container'>
+        <!-- label - cert -->
+        <label for="reg-cert" class="form-label">인증서</label>
+        <!-- input - cert -->
+        <input type="text" class="form-control" id="reg-cert">
+        <br>
+        <!-- label - phoneno -->
+        <label for="reg-phoneno" class="form-lable">폰번호</label>
+        <!-- input - phoneno -->
+        <input type="text" class="form-control" id="reg-phoneno">
+        <br>
+        <!-- label - mile -->
+        <label for="reg-mile" class="form-lable">마일리지</label>
+        <!-- input - mile -->
+        <input type="text" class="form-control" id="reg-mile">
+        <br>
+        <!-- 생성 button -->
+        <button class="btn btn-primary" id="reg-btn">스타카드생성</button>
+    </div>
+    <br>
+    <div class="container" id="reg-result">
+        <!-- 결과 출력 영역 -->
+    </div>
+    <!-- 마일리지 적립 사용 -->
+    <div class="container">
+        <br>
+        <h1 >마일리지 적립/사용 페이지</h1>
+        <p>마일리지 적립/사용 위한 정보를 입력하세요. </p>
+    </div>
+    <div class='container'>
+        <!-- label - cert -->
+        <label for="mile-certid" class="form-label">인증서</label>
+        <!-- input - cert -->
+        <input type="text" class="form-control" id="mile-certid">
+        <br>
+        <!-- label - phoneno -->
+        <label for="mile-phoneno" class="form-lable">폰 번호</label>
+        <!-- input - phoneno -->
+        <input type="text" class="form-control" id="mile-phoneno">
+        <br>
+        <label for="mile-amount" class="form-lable">마일리지</label>
+        <input type="text" class="form-control" id="mile-amount">
+        <br>
+        <!-- 마일리지수행 button -->
+        <button class="btn btn-warning" id="mileadd-btn">마일리지 적립</button> &nbsp;
+        <button class="btn btn-danger   " id="milespend-btn">마일리지 사용</button> 
+    </div>
+    <br>
+    <div class="container" id="mile-result">
+        <!-- 결과 출력 영역 -->
+    </div>
+    <!-- 별사용 -->
+    <div class="container">
+        <br>
+        <h1 >별 사용 페이지</h1>
+        <p>별 사용을 위한 정보를 입력하세요. </p>
+    </div>
+    <div class='container'>
+        <!-- label - cert -->
+        <label for="star-certid" class="form-label">인증서</label>
+        <!-- input - cert -->
+        <input type="text" class="form-control" id="star-certid">
+        <br>
+        <!-- label - phoneno -->
+        <label for="star-phoneno" class="form-lable">폰 번호</label>
+        <!-- input - phoneno -->
+        <input type="text" class="form-control" id="star-phoneno">
+        <br>
+        <!-- 마일리지수행 button -->
+        <button class="btn btn-outline-success" id="star-btn">별 사용</button>
+
+    </div>
+    <br>
+    <div class="container" id="star-result">
+        <!-- 결과 출력 영역 -->
+    </div>
+    <!-- 조회 -->
+    <div class="container">
+        <br>
+        <h1 >스타카드 조회 페이지</h1>
+        <p>스타카드 조회 위한 정보를 입력하세요. </p>
+    </div>
+    <div class='container'>
+        <!-- label - cert -->
+        <label for="read-certid" class="form-label">인증서</label>
+        <!-- input - cert -->
+        <input type="text" class="form-control" id="read-certid">
+        <br>
+        <!-- label - phoneno -->
+        <label for="read-phoneno" class="form-lable">폰 번호</label>
+        <!-- input - phoneno -->
+        <input type="text" class="form-control" id="read-phoneno">
+        <br>
+        <!-- 조회 button -->
+        <button class="btn btn-info" id="read-btn">스타카드 조회</button>
+    </div>
+    <br>
+    <div class="container" id="read-result">
+        <!-- 결과 출력 영역 -->
+    </div>
+    <br><br><br>
+</body>
+<script>
+    $("#reg-btn").click(() => {
+        const certid = $("#reg-certid").val();
+        const pno = $("#reg-phoneno").val();
+        const mile = $("#reg-mile").val();
+
+        $.post("/starcard", { certid, pno, mile }, (data, status) => {
+            $("#reg-result").empty();
+
+            //const res = JSON.stringify(data);
+            if (data.result == 'success') {
+                $("#reg-result").append('RESULT: ' + data.result)
+                $("#reg-result").append('<br>')
+                $("#reg-result").append('MESSAGE: ' + data.msg)
+            } else if (data.result == 'failed') {
+                $("#reg-result").append('RESULT: ' + data.result)
+                $("#reg-result").append('<br>')
+                $("#reg-result").append('ERROR: ' + data.error)
+            }
+        })
+    })
+
+    $("#mileadd-btn").click(() => {
+        const certid = $("#mile-certid").val();
+        const pno = $("#mile-phoneno").val();
+        const amount = $("#mile-amount").val();
+
+        $.post("/mileage", { certid, pno, amount }, (data, status) => {
+            $("#mile-result").empty();
+
+            //const res = JSON.stringify(data);
+            if (data.result == 'success') {
+                $("#mile-result").append('RESULT: ' + data.result)
+                $("#mile-result").append('<br>')
+                $("#mile-result").append('MESSAGE: ' + data.msg)
+            } else if (data.result == 'failed') {
+                $("#mile-result").append('RESULT: ' + data.result)
+                $("#mile-result").append('<br>')
+                $("#mile-result").append('ERROR: ' + data.error)
+            }
+        })
+    })
+
+    $("#milespend-btn").click(() => {
+        const certid = $("#mile-certid").val();
+        const pno = $("#mile-phoneno").val();
+        const amount = -1*$("#mile-amount").val();
+
+
+        $.post("/mileage", { certid, pno, amount }, (data, status) => {
+            $("#mile-result").empty();
+
+            //const res = JSON.stringify(data);
+            if (data.result == 'success') {
+                $("#mile-result").append('RESULT: ' + data.result)
+                $("#mile-result").append('<br>')
+                $("#mile-result").append('MESSAGE: ' + data.msg)
+            } else if (data.result == 'failed') {
+                $("#mile-result").append('RESULT: ' + data.result)
+                $("#mile-result").append('<br>')
+                $("#mile-result").append('ERROR: ' + data.error)
+            }
+        })
+    })
+
+    $("#star-btn").click(() => {
+        const certid = $("#star-certid").val();
+        const pno = $("#star-phoneno").val();
+
+        $.post("/star", { certid, pno }, (data, status) => {
+            $("#star-result").empty();
+
+            //const res = JSON.stringify(data);
+            if (data.result == 'success') {
+                $("#star-result").append('RESULT: ' + data.result)
+                $("#star-result").append('<br>')
+                $("#star-result").append('MESSAGE: ' + data.msg)
+            } else if (data.result == 'failed') {
+                $("#star-result").append('RESULT: ' + data.result)
+                $("#star-result").append('<br>')
+                $("#star-result").append('ERROR: ' + data.error)
+            }
+        })
+    })
+
+    $("#reg-btn").click(() => {
+        const certid = $("#reg-cert").val();
+        const pno = $("#reg-phoneno").val();
+        const mile = $("#reg-mile").val();
+
+        $.post("/starcard", { certid, pno, mile }, (data, status) => {
+            $("#reg-result").empty();
+
+            //const res = JSON.stringify(data);
+            if (data.result == 'success') {
+                $("#reg-result").append('RESULT: ' + data.result)
+                $("#reg-result").append('<br>')
+                $("#reg-result").append('MESSAGE: ' + data.msg)
+            } else if (data.result == 'failed') {
+                $("#reg-result").append('RESULT: ' + data.result)
+                $("#reg-result").append('<br>')
+                $("#reg-result").append('ERROR: ' + data.error)
+            }
+        })
+    })
+
+    $("#read-btn").click(() => {
+        const certid = $("#read-certid").val();
+        const pno = $("#read-phoneno").val();
+
+        $.get("/starcard", { certid, pno }, (data, status) => {
+            $("#read-result").empty();
+
+            //const res = JSON.stringify(data);
+            if (data.result == 'success') {
+                $("#read-result").append('RESULT: ' + data.result)
+                $("#read-result").append('<br>')
+                $("#read-result").append('MESSAGE: ' + data.msg)
+                $("#read-result").append('<br>')
+                $("#read-result").append('CONTENTS: ' + JSON.stringify(data.content))
+
+            } else if (data.result == 'failed') {
+                $("#read-result").append('RESULT: ' + data.result)
+                $("#read-result").append('<br>')
+                $("#read-result").append('ERROR: ' + data.error)
+            }
+        })
+    })
+</script>
+
+</html>
