@@ -22,7 +22,9 @@ cd ~/dev/star-project/application
 cp ~/fabric-samples/test-network/organizations/peerOrganizations/org1example.com/connection-org1.json ./config
 ```
 # 4. server 시작
-  node server.js
+```
+node server.js
+```
   
 # 5. 크롬에 접속
   localhost:3000
